@@ -3,9 +3,9 @@ const { Buffer } = require('buffer');
 const handleImageUrl = async (req, res) => {
     const { imageUrl } = req.body;
 
-    const PAT = "3e200625947e4b29911f3ed6fbeafa38";
-    const USER_ID = "xz7j0wi28qvy";
-    const APP_ID = "i-know";
+    const PAT = process.env.CLARIFAI_PAT;
+    const USER_ID = process.env.CLARIFAI_USER_ID;
+    const APP_ID = process.env.CLARIFAI_APP_ID;
     const MODEL_ID = "general-image-recognition";
 
     try {
