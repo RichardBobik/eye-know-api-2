@@ -52,11 +52,16 @@ app.use(
     directives: {
       defaultSrc: ["'self'"],
       scriptSrc: ["'self'"],
+      imgSrc: ["'self'", "data:", "https:"],
+      fontSrc: ["'self'", "https:", "data:"],
       objectSrc: ["'none'"],
+      frameAncestors: ["'self'"],
       upgradeInsecureRequests: [],
     },
   })
 );
+app.use(helmet.referrerPolicy({ policy: "strict-origin-when-cross-origin" }));
+app.use(helmet.crossOriginResourcePolicy({ policy: "same-origin" }));
 
 app.disable("x-powered-by");
 
