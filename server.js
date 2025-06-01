@@ -13,21 +13,11 @@ const signIn = require("./controllers/signIn");
 const image = require("./controllers/image");
 const imageUrl = require("./controllers/imageUrl");
 
-// const db = knex({
-//     client: "pg",
-//     connection: {
-//         connectionString: process.env.DATABASE_URL,
-//         ssl: { rejectUnauthorized: false }
-//     }
-// });
-
 const db = knex({
   client: "pg",
   connection: {
-    port: 5432,
-    user: process.env.DATABASE_USER,
-    password: process.env.DATABASE_PW,
-    database: process.env.DATABASE_DB,
+    connectionString: process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false },
   },
 });
 
@@ -55,6 +45,7 @@ app.use(
     credentials: true,
   })
 );
+
 app.use(helmet());
 app.use(
   helmet.contentSecurityPolicy({
@@ -126,5 +117,5 @@ app.use((err, req, res, next) => {
       ? "Something went wrong!"
       : err.message;
 
-  res.status(500).send(message);
+  res.status(500).json({ error: message });
 });
