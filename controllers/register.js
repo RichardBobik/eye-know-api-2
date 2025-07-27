@@ -1,5 +1,6 @@
 const handleRegister = async (req, res, db, bcrypt) => {
   const { email, name, password } = req.body;
+  email = email.toLowerCase();
 
   try {
     const saltRounds = 10;

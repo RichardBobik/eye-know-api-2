@@ -1,5 +1,5 @@
 {
-  "name": "eye-know-api",
+  "name": "eye-know-api-2",
   "version": "1.0.0",
   "description": "Backend API for Eye-Know app",
   "main": "server.js",
@@ -17,8 +17,10 @@
     "express-rate-limit": "^7.5.0",
     "express-validator": "^7.2.1",
     "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
     "knex": "^3.1.0",
-    "pg": "^8.15.6"
+    "pg": "^8.15.6",
+    "redis": "^5.5.6"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
